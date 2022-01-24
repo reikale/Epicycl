@@ -1,0 +1,17 @@
+﻿@model Epicycl.ViewModels.RandomSetelliteViewModel;
+@{
+    ViewData["Title"] = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    // var className = Model.Customer.Count > 5 ? "popular" : null;
+}
+<h1>@Model.Setellite.Name</h1>
+<ul>
+    @foreach(var customer in Model.Customer)
+    {
+        <li>@customer.Name</li>
+    }
+</ul>
+
+
