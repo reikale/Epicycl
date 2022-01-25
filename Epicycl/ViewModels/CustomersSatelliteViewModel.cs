@@ -2,9 +2,9 @@
 
 namespace Epicycl.ViewModels
 {
-    public class RandomSetelliteViewModel
+    public class CustomersSatelliteViewModel
     {
-        public Setellite Setellite { get; set; }
         public List<Customer> Customer { get; set; }
+        public List<Satellite> Satellite { get; set; }
     }
 }
