@@ -8,11 +8,15 @@ namespace Epicycl.Controllers
 {
     public class CustomerController : Controller
     {
-        
+        private DataContext _context;
+        public CustomerController(DataContext context)
+        {
+            _context = context;
+        }
         public ActionResult Index()
         {
             
-            var customers = GetCustomers();
+            var customers = _context.Customers;
             
             
             return View(customers);
@@ -22,7 +26,7 @@ namespace Epicycl.Controllers
 
         public ActionResult Details(int id)
         {
-            var customer = GetCustomers().SingleOrDefault(x=> x.Id == id);
+            var customer = _context.Customers.SingleOrDefault(x=> x.Id == id);
             
             if(customer != null)
             {
