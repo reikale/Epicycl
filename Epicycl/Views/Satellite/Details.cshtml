@@ -4,16 +4,65 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@Model.Name</h1>
 
-<ul>
-    <li>Type: @Model.Type</li>
-    <li>Launch Date: @Model.LaunchDate</li>
-    <li>Space Agency: @Model.SpaceAgency</li>
-    <li>Space Agency: @Model.SpaceAgency</li>
-    @if (@Model.Terminated != null)
+<div class="card mb-3">
+  <h3 class="card-header">@Model.Name</h3>
+  <div class="card-body">
+    <h5 class="card-title">Space Agency: @Model.Operator</h5>
+    
+    @if(@Model.Type == "Earth observation satellites")
     {
-        <li>Terminated: @Model.Terminated</li>
+        <h6 class="card-subtitle text-muted">@Model.Type</h6>
     }
-    <li>Description: @Model.Description</li>
-</ul>
+    @if(@Model.Type == "Astronomical satellites")
+    {
+        <h6 class="card-subtitle text-muted">@Model.Type</h6>
+    }
+
+  </div>
+  @*@if (@Model.ImageLink !=null)
+  {
+      <svg xmlns="@Model.ImageLink" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+    <rect width="100%" height="100%" fill="#868e96"></rect>
+    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+  </svg>
+  }*@
+  
+  <div class="card-body">
+        @if(@Model.Terminated == null)
+        {
+            <p class="card-text text-success">This satellite is active</p>
+        }else{
+             <p class="card-text text-danger">This satellite was terminated</p>
+        }
+        <p class="card-text"> @Model.Description</p>
+  </div>
+  
+ @* <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>*@
+    @if(Model.Terminated == null)
+    {
+        <div class="card border-success mb-3" style="max-width: 20rem;">
+          <div class="card-body">
+            <h4 class="card-title">Satellite was launched @Model.LaunchDate</h4>
+          </div>
+        </div>
+    }else
+        {
+            <div class="card border-warning mb-3" style="max-width: 20rem;">
+          <div class="card-body">
+            <h4 class="card-title">Satellite was launched @Model.Terminated</h4>
+            <h4 class="card-title">Terminated @Model.Terminated</h4>
+          </div>
+        </div>
+        }
+
+  
+</div>
+
+
+
+
+

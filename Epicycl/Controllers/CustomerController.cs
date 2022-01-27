@@ -16,15 +16,30 @@ namespace Epicycl.Controllers
         }
         public ActionResult Index()
         {
-            
+
             var customers = _context.Customers.Include(c => c.MembershipType);
-            
-            
+
+
             return View(customers);
+
         }
 
-
-
+        public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+            return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult Create(Customer customer)
+        {
+            _context.Add(customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customer");
+        }
         public ActionResult Details(int id)
         {
             var customer = _context.Customers.SingleOrDefault(x => x.Id == id);
