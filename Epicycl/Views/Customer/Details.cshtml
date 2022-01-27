@@ -5,6 +5,13 @@
 }
 
 <h1>@Model.Name</h1>
-<h2>Subscribed: @Model.IsSubscribedToNewsletter</h2>
+<ul>
+    <li>Membership Type: @Model.MembershipType</li>
+    @if (@Model.Birthday != null)
+    {
+        <li>Birthday: @Model.Birthday</li>
+    }
+    
+</ul>
 
 

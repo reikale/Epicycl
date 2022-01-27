@@ -13,6 +13,8 @@
   <thead>
     <tr>
       <th scope="col">Customer</th>
+      <th scope="col">Membership Type</th>
+
     </tr>
   </thead>
   <tbody>
@@ -20,10 +22,11 @@
             @foreach(var customer in Model)
             {
                 <tr class="table-dark">
-                 <th scope="row">
+                 <td scope="row">
                      @Html.ActionLink(customer.Name, "Details", "Customer", new{ id=customer.Id}, null)
                      
-                 </th>
+                 </td>
+                 <td>@customer.MembershipType.Name</td>
                  </tr>
             }
                 

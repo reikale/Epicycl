@@ -1,6 +1,7 @@
 ﻿using Epicycl.Models;
 using Epicycl.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Linq;
 
@@ -16,7 +17,7 @@ namespace Epicycl.Controllers
         public ActionResult Index()
         {
             
-            var customers = _context.Customers;
+            var customers = _context.Customers.Include(c => c.MembershipType);
             
             
             return View(customers);
@@ -26,11 +27,11 @@ namespace Epicycl.Controllers
 
         public ActionResult Details(int id)
         {
-            var customer = _context.Customers.SingleOrDefault(x=> x.Id == id);
-            
-            if(customer != null)
+            var customer = _context.Customers.SingleOrDefault(x => x.Id == id);
+
+            if (customer != null)
             {
-                
+
                 return View(customer);
             }
             else
@@ -38,13 +39,6 @@ namespace Epicycl.Controllers
                 return NotFound();
             }
         }
-        private IEnumerable<Customer> GetCustomers()
-        {
-            return new List<Customer>
-            {
-            new Customer { Id= 0, Name = "Jonas Jonaitis"},
-            new Customer { Id= 1, Name = "Marytė Marytaitė"}
-            };
-        }
+
     }
 }

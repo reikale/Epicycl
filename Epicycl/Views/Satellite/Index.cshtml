@@ -14,17 +14,19 @@
   <thead>
     <tr>
       <th scope="col">Satellites</th>
+      <th scope="col">Type</th>
     </tr>
   </thead>
   <tbody>
     
-            @foreach(var customer in Model)
+            @foreach(var satellite in Model)
             {
                 <tr class="table-dark">
-                 <th scope="row">
-                    @customer.Name
+                 <td scope="row">
+                     @Html.ActionLink(satellite.Name, "Details", "Satellite", new{ id=satellite.Id}, null)
                      
-                 </th>
+                 </td>
+                 <td>@satellite.Type</td>
                  </tr>
             }
     

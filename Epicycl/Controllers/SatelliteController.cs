@@ -6,29 +6,31 @@ namespace Epicycl.Controllers
 {
     public class SatelliteController : Controller
     {
-        // GET: Setellite/Random
-        public ActionResult Random()
+        private DataContext _context;
+        public SatelliteController(DataContext context)
         {
-            var satellite = new Satellite() { Name = "Random action" };
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "vienas"},
-                new Customer { Name = "du"}
-            };
+            _context = context;
+        }
+        // GET: Setellite/Random
+        public ActionResult Details(int id)
+        {
+            var satellite = _context.Satellites.SingleOrDefault(x => x.Id == id);
 
-            var viewModel = new RandomSatelliteViewModel
+            if (satellite != null)
             {
-                
-                Customer = customers
-            };
 
-            return View(viewModel);
+                return View(satellite);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
        
         public ActionResult Index()
         {
             
-            var satellites = GetSatellites();
+            var satellites = _context.Satellites;
 
             if(satellites != null)
             {
@@ -42,13 +44,6 @@ namespace Epicycl.Controllers
 
             
         }
-        private List<Satellite> GetSatellites()
-        {
-            return new List<Satellite>
-            {
-                 new Satellite { Id=0, Name = "Second Small Astronomy Satellite (SAS 2)"},
-                 new Satellite{ Id=1, Name = "3rd High Energy Astronomy Observatory (HEAO 3)"}
-            };
-        }
+       
     }
 }

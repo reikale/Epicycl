@@ -10,5 +10,6 @@ namespace Epicycl.Data
 
         }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Satellite> Satellites { get; set; }
     }
 }

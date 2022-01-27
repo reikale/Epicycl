@@ -8,6 +8,7 @@ namespace Epicycl.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            
             migrationBuilder.AddColumn<byte>(
                 name: "MembershipTypeId",
                 table: "Customers",
@@ -41,6 +42,11 @@ namespace Epicycl.Migrations
                 principalTable: "MembershipType",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.Sql("UPDATE MembershipType SET Type = 'Pay as You Go' WHERE Id = 1");
+            migrationBuilder.Sql("UPDATE MembershipType SET Type = 'Monthly' WHERE Id = 2");
+            migrationBuilder.Sql("UPDATE MembershipType SET Type = 'Quarterly' WHERE Id = 3");
+            migrationBuilder.Sql("UPDATE MembershipType SET Type = 'Yearly' WHERE Id = 4");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
