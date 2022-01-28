@@ -1,0 +1,43 @@
+﻿@model Epicycl.ViewModels.SatelliteFormViewModel;
+@{
+    ViewData["Title"] = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>New Satellite</h1>
+
+@using (@Html.BeginForm("Save", "Satellite")){
+    <div class="form-group">
+        @Html.LabelFor(m => m.Satellite.Name, new {@class = "form-label"})
+        @Html.TextBoxFor(m => m.Satellite.Name, new {@class = "form-control", @placeholder = "International Space Station (ISS)"})
+    </div>
+     <div class="form-group">
+        @Html.LabelFor(m => m.Satellite.Operator, new {@class = "form-label"})
+        @Html.TextBoxFor(m => m.Satellite.Operator, new {@class = "form-control", @placeholder = "NASA, Roscosmos, JAXA, JASA, CSA"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Satellite.LaunchDate, new {@class = "form-label mt-4"})
+        @Html.TextBoxFor(m=> m.Satellite.LaunchDate, new {@class = "form-control", @placeholder = "20/11/1998"})
+    </div>
+        <div class="form-group">
+        @Html.LabelFor(m => m.Satellite.Terminated, new {@class = "form-label mt-4"})
+        @Html.TextBoxFor(m=> m.Satellite.Terminated, new {@class = "form-control"})
+    </div>
+     <div class="form-group">
+        @Html.LabelFor(m => m.Satellite.Type, new {@class = "form-label mt-4"})
+        @Html.DropDownListFor(m => m.Satellite.Type, new SelectList(Model.SatelliteTypes), "Choose a Satellite Type", new {@class = "form-control mt-4B"})
+    </div>
+     <div class="form-group">
+        @Html.LabelFor(m => m.Satellite.Description, new {@class = "form-label mt-4"})
+        @Html.TextAreaFor(m=> m.Satellite.Description, new {@class = "form-control", @placeholder = "Satellite description..."})
+    </div>
+    <hr />
+     @*<div class="checkbox form-check">
+       <label>
+           @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsletter, new {@class="form-check-input"})
+            Subscribe to newsletter?
+       </label>
+    </div>*@
+    @Html.HiddenFor(m=>m.Satellite.Id);
+    <button type="submit" class="btn btn-primary">Save</button>
+}
