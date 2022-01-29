@@ -3,21 +3,31 @@
     ViewData["Title"] = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if(Model.Satellite.Name == null)
+{
+    <h1>New Satellite</h1>
+}else
+{
+    <h1>Edit Satellite</h1>
+}
 
-<h1>New Satellite</h1>
 
 @using (@Html.BeginForm("Save", "Satellite")){
     <div class="form-group">
         @Html.LabelFor(m => m.Satellite.Name, new {@class = "form-label"})
         @Html.TextBoxFor(m => m.Satellite.Name, new {@class = "form-control", @placeholder = "International Space Station (ISS)"})
+        @Html.ValidationMessageFor(m => m.Satellite.Name)
     </div>
      <div class="form-group">
         @Html.LabelFor(m => m.Satellite.Operator, new {@class = "form-label"})
         @Html.TextBoxFor(m => m.Satellite.Operator, new {@class = "form-control", @placeholder = "NASA, Roscosmos, JAXA, JASA, CSA"})
+        @Html.ValidationMessageFor(m => m.Satellite.Operator)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Satellite.LaunchDate, new {@class = "form-label mt-4"})
+        
         @Html.TextBoxFor(m=> m.Satellite.LaunchDate, new {@class = "form-control", @placeholder = "20/11/1998"})
+        @Html.ValidationMessageFor(m => m.Satellite.LaunchDate)
     </div>
         <div class="form-group">
         @Html.LabelFor(m => m.Satellite.Terminated, new {@class = "form-label mt-4"})
@@ -26,10 +36,12 @@
      <div class="form-group">
         @Html.LabelFor(m => m.Satellite.Type, new {@class = "form-label mt-4"})
         @Html.DropDownListFor(m => m.Satellite.Type, new SelectList(Model.SatelliteTypes), "Choose a Satellite Type", new {@class = "form-control mt-4B"})
+        @Html.ValidationMessageFor(m => m.Satellite.Type)
     </div>
      <div class="form-group">
         @Html.LabelFor(m => m.Satellite.Description, new {@class = "form-label mt-4"})
         @Html.TextAreaFor(m=> m.Satellite.Description, new {@class = "form-control", @placeholder = "Satellite description..."})
+        @Html.ValidationMessageFor(m => m.Satellite.Description)
     </div>
     <hr />
      @*<div class="checkbox form-check">
@@ -38,6 +50,13 @@
             Subscribe to newsletter?
        </label>
     </div>*@
+ 
     @Html.HiddenFor(m=>m.Satellite.Id);
+    @Html.AntiForgeryToken();
     <button type="submit" class="btn btn-primary">Save</button>
+}
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
 }

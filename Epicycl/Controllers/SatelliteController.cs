@@ -30,7 +30,7 @@ namespace Epicycl.Controllers
         {
             var viewModel = new SatelliteFormViewModel
             {
-                Satellite = new Satellite(),
+                Satellite = satellite,
                 SatelliteTypes = new List<string>
                 {
                     "Astronomical satellites",
@@ -42,6 +42,9 @@ namespace Epicycl.Controllers
             };   
             return View(viewModel);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Satellite satellite)
         {
             if (satellite.Id == 0)

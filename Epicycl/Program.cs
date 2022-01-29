@@ -8,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+
+/*builder.Services.AddSwaggerGen();*/
+builder.Services.AddCors();
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -35,3 +39,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+app.UseCors(x => x
+.AllowAnyMethod()
+.AllowAnyHeader()
+.SetIsOriginAllowed(origin => true));

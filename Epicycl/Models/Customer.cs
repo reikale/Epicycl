@@ -19,6 +19,7 @@ namespace Epicycl.Models
         public byte MembershipTypeId { get; set; }
 
         [Display(Name ="Date of Birth")]
-        public string? Birthday { get; set; }
+        [Min18YearsIfaMember]
+        public DateTime Birthday { get; set; }
     }
 }
