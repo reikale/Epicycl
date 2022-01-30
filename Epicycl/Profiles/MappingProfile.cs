@@ -11,6 +11,8 @@ namespace Epicycl.Properties
         {
             CreateMap<Customer, CustomerDto>();
             CreateMap<CustomerDto, Customer>();
+            CreateMap<Satellite, SatelliteDto>();
+            CreateMap<SatelliteDto, Satellite>();
         }
     }
 }
