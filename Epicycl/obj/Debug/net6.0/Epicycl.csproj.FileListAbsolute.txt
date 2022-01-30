@@ -498,3 +498,5 @@ C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\runtimes\win\l
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\System.Net.Http.Formatting.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\System.Web.Http.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

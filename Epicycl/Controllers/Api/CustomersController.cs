@@ -1,4 +1,6 @@
-﻿using Epicycl.Models;
+﻿using AutoMapper;
+using Epicycl.DTOs;
+using Epicycl.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Web.Http;
@@ -10,21 +12,23 @@ namespace Epicycl.Controllers.Api
     public class CustomersController : ControllerBase
     {
         private DataContext _context;
-        public CustomersController(DataContext context)
+        private readonly IMapper _mapper;
+        public CustomersController(DataContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET /api/customers
         [Microsoft.AspNetCore.Mvc.HttpGet]
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<CustomerDto> GetCustomers()
         {
-            return _context.Customers.ToList();
+            return _context.Customers.ToList().Select(_mapper.Map<Customer, CustomerDto>);
         }
 
         // GET /api/customers/id
         [Microsoft.AspNetCore.Mvc.HttpGet("{id}")]
-        public Customer GetCustomer(int id)
+        public CustomerDto GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(x => x.Id == id);
             if (customer == null)
@@ -32,28 +36,30 @@ namespace Epicycl.Controllers.Api
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             }
 
-            return customer;
+            return _mapper.Map<Customer, CustomerDto>(customer);
         }
 
         // POST /api/customers
         [Microsoft.AspNetCore.Mvc.HttpPost]
-        public Customer CreateCustomer(Customer customer)
+        public CustomerDto CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
                 throw new HttpResponseException(System.Net.HttpStatusCode.BadRequest);
             }
-
+            var customer = _mapper.Map<CustomerDto, Customer>(customerDto);
             _context.Customers.Add(customer);
             _context.SaveChanges();
 
-            return customer;
+            customerDto.Id= customer.Id;
+
+            return customerDto;
         }
 
 
         // PUT /api/customers/id
         [Microsoft.AspNetCore.Mvc.HttpPut("{id}")]
-        public void UpdateCustomer(int id, Customer customer)
+        public void UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
@@ -64,11 +70,8 @@ namespace Epicycl.Controllers.Api
             {
                 throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
             }
-            customerInDb.Name = customer.Name;
-            customerInDb.Birthday = customer.Birthday;
-            customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
-            customerInDb.MembershipTypeId = customer.MembershipTypeId;
-
+            _mapper.Map(customerDto, customerInDb);
+           
             _context.SaveChanges();
         }
 
