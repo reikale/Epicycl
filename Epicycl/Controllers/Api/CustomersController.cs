@@ -2,6 +2,7 @@
 using Epicycl.DTOs;
 using Epicycl.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System.Web.Http;
 
@@ -28,24 +29,24 @@ namespace Epicycl.Controllers.Api
 
         // GET /api/customers/id
         [Microsoft.AspNetCore.Mvc.HttpGet("{id}")]
-        public CustomerDto GetCustomer(int id)
+        public ActionResult GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(x => x.Id == id);
             if (customer == null)
             {
-                throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+                return NotFound();
             }
 
-            return _mapper.Map<Customer, CustomerDto>(customer);
+            return Ok(_mapper.Map<Customer, CustomerDto>(customer));
         }
 
         // POST /api/customers
         [Microsoft.AspNetCore.Mvc.HttpPost]
-        public CustomerDto CreateCustomer(CustomerDto customerDto)
+        public ActionResult CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(System.Net.HttpStatusCode.BadRequest);
+                return BadRequest();
             }
             var customer = _mapper.Map<CustomerDto, Customer>(customerDto);
             _context.Customers.Add(customer);
@@ -53,7 +54,7 @@ namespace Epicycl.Controllers.Api
 
             customerDto.Id= customer.Id;
 
-            return customerDto;
+            return Created(new Uri(Request.GetEncodedUrl() + "/" + customer.Id), customerDto);
         }
 
 
