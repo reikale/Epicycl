@@ -46,15 +46,15 @@
     {
         <div class="card border-success mb-3" style="max-width: 20rem;">
           <div class="card-body">
-            <h4 class="card-title">Satellite was launched @Model.LaunchDate.Date</h4>
+            <h4 class="card-title">Satellite was launched @Model.LaunchDate.ToShortDateString()</h4>
           </div>
         </div>
     }else
         {
             <div class="card border-warning mb-3" style="max-width: 20rem;">
           <div class="card-body">
-            <h4 class="card-title">Satellite was launched @Model.LaunchDate.Date</h4>
-            <h4 class="card-title">Terminated @Model.Terminated.Value.Date</h4>
+            <h4 class="card-title">Satellite was launched @Model.LaunchDate.ToShortDateString()</h4>
+            <h4 class="card-title">Terminated @Model.Terminated.Value.Date.ToShortDateString()</h4>
           </div>
         </div>
         }

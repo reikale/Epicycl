@@ -31,14 +31,7 @@ namespace Epicycl.Controllers
             var viewModel = new SatelliteFormViewModel
             {
                 Satellite = satellite,
-                SatelliteTypes = new List<string>
-                {
-                    "Astronomical satellites",
-                    "Earth observation satellites",
-                    "Communication satellites",
-                    "Navigational satellites",
-                    "Space stations"
-                }
+                SatelliteTypes = _context.SatelliteTypes.Select(x => x.Name).ToList()
             };   
             return View(viewModel);
         }
@@ -47,6 +40,15 @@ namespace Epicycl.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Satellite satellite)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new SatelliteFormViewModel
+                {
+                    Satellite = satellite,
+                    SatelliteTypes = _context.SatelliteTypes.Select(x => x.Name).ToList()
+                };
+                return View("New", viewModel);
+            }
             if (satellite.Id == 0)
             {
                 _context.Satellites.Add(satellite);
@@ -77,14 +79,8 @@ namespace Epicycl.Controllers
             var viewModel = new SatelliteFormViewModel
             {
                 Satellite = satellite,
-                SatelliteTypes = new List<string>
-                {
-                    "Astronomical satellites",
-                    "Earth observation satellites",
-                    "Communication satellites",
-                    "Navigational satellites",
-                    "Space stations"
-                }
+                SatelliteTypes = _context.SatelliteTypes.Select(x => x.Name).ToList()
+            
 
             };
             return View("New", viewModel); // sitas nukelia tiesiai i View.New kad butu sukurtas varototojas jei tokio nerado

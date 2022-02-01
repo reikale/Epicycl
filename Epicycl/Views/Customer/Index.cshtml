@@ -5,6 +5,10 @@
 }
 <h1>Customers</h1>
 <br />
+<p>
+    @Html.ActionLink("Create new", "New", "Customer", null, new {@class = "btn btn-primary"})
+</p>
+
 @if(!Model.Any())
 {
     <p>We don't have any customers yet.</p>
@@ -14,6 +18,7 @@
     <tr>
       <th scope="col">Customer</th>
       <th scope="col">Membership Type</th>
+      <th scope="col">Edit / Delete a Customer</th>
 
     </tr>
   </thead>
@@ -23,10 +28,26 @@
             {
                 <tr class="table-dark">
                  <td scope="row">
-                     @Html.ActionLink(customer.Name, "Edit", "Customer", new{ id=customer.Id}, null)
+                    @Html.ActionLink(customer.Name, "Details", "Customer", new{ id=customer.Id}, null)
                      
                  </td>
                  <td>@customer.MembershipType.Name</td>
+                 <td>
+                     @Html.ActionLink(
+                        "Edit", 
+                        "Edit", 
+                        "Customer", 
+                        new { id = customer.Id }, 
+                        new { @class="btn btn-warning" })
+                     @Html.ActionLink(
+                        "Delete", 
+                        "DeleteCustomer", 
+                        "Customer", 
+                        new { id = customer.Id }, 
+                        new { onclick = "return confirm('Are you sure you want to delete this customer?');", @class="btn btn-danger" }) 
+                     
+                    
+                 </td>
                  </tr>
             }
                 

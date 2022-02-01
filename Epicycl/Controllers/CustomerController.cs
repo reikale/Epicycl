@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Linq;
+using System.Web.Http;
 
 namespace Epicycl.Controllers
 {
@@ -35,10 +36,12 @@ namespace Epicycl.Controllers
             return View("CustomerForm", viewModel);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        /*[ValidateAntiForgeryToken]*/
         public ActionResult Save(Customer customer)
         {
+            
+            
             if (!ModelState.IsValid)
             {
                 var viewModel = new CustomerFormViewModel
@@ -81,6 +84,22 @@ namespace Epicycl.Controllers
             return View("CustomerForm", viewModel); // sitas nukelia tiesiai i View.New kad butu sukurtas varototojas jei tokio nerado
             
             
+        }
+
+        public ActionResult DeleteCustomer(int id)
+        {
+            if (id != null)
+            {
+                var customer = _context.Customers.SingleOrDefault(x=> x.Id == id);
+                if (customer == null)
+                {
+                    throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
+                }
+                _context.Customers.Remove(customer);
+               
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customer");
         }
         public ActionResult Details(int id)
         {

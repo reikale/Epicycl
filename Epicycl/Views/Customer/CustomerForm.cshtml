@@ -17,11 +17,12 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.MembershipTypeId, new {@class = "form-label mt-4"})
         @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Choose a Subscription Type", new {@class = "form-control mt-4B"})
+       
         @Html.ValidationMessageFor(M => M.Customer.MembershipTypeId, "Membership Type field is invalid")
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Birthday, new {@class = "form-label mt-4"})
-        @Html.TextBoxFor(m => m.Customer.Birthday, "{0:d MMM yyyy}", new {@class = "form-control mt-4B"})
+        @Html.TextBoxFor(m => m.Customer.Birthday, "{0:yyyy-MM-dd}", new {@class = "form-control mt-4B"})
         @Html.ValidationMessageFor(M => M.Customer.Birthday, "Date of Birth field is required")
     </div>
    
@@ -34,7 +35,7 @@
        </label>
     </div>
     @Html.HiddenFor(m=>m.Customer.Id);
-    @Html.AntiForgeryToken()
+    @*@Html.AntiForgeryToken()*@
     <hr />
     <button type="submit" class="btn btn-primary">Save</button>
 }
