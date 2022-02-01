@@ -3,23 +3,29 @@
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>About @Model.Customer.Name</h1>
-
-
-
-<ul>
-    <li>Membership Type: 
-        @{
-            var MemType = @Model.SubscribtionTypes.Select(x => x.Id == @Model.Customer.MembershipTypeId);
+@{
+            var MemType = @Model.SubscribtionTypes.SingleOrDefault(x => x.Id == @Model.Customer.MembershipTypeId);
             
         }
-        @Model.Customer.MembershipType</li>
-    @if (@Model.Customer.Birthday != null)
-    {
-        <li>Birthday: @Model.Customer.Birthday</li>
-    }
-    
-</ul>
+
+<h1>@Model.Customer.Name Customer Page</h1>
+
+<div class="card border-dark mb-3" style="max-width: 20rem;">
+  <div class="card-header">Information</div>
+  <div class="card-body">
+    <h4 class="card-title">@Model.Customer.Name</h4>
+    <h5>Birthday: @Model.Customer.Birthday</h5>
+    <h5>About: </h5>
+    <p class="card-text">
+        Hi! My name is @Model.Customer.Name and I'm the CEO of VeryBigCompany. 
+        My team and I develope awesome solutions for communication and environment problems, but
+        we have a slight problem - there's not enough satellites in space to fill everyone's needs.
+        Can you rent me one? I promise I will offer you solutions you've been looking for!
+    </p>
+  </div>
+</div>
+
+
+
 
 

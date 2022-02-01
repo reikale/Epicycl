@@ -6,5 +6,7 @@ namespace Epicycl.ViewModels
     {
         public Customer Customer { get; set; }
         public IEnumerable<SubscribtionTypes> SubscribtionTypes { get; set; }
+
+        
     }
 }
