@@ -11,7 +11,7 @@ namespace Epicycl.Controllers
         {
             _context = context;
         }
-        // GET: Setellite/Random
+        
         public ActionResult Details(int id)
         {
             var satellite = _context.Satellites.SingleOrDefault(x => x.Id == id);
@@ -85,6 +85,17 @@ namespace Epicycl.Controllers
             };
             return View("New", viewModel); // sitas nukelia tiesiai i View.New kad butu sukurtas varototojas jei tokio nerado
 
+        }
+        public ActionResult Delete(int id)
+        {
+            var satellite = _context.Satellites.SingleOrDefault(x => x.Id == id);
+            if (satellite == null)
+            {
+                return NotFound();
+            }
+            _context.Satellites.Remove(satellite);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Satellite");
         }
         public ActionResult Index()
         {

@@ -25,3 +25,6 @@ body {
 .field-validation-valid {
     display: none;
 }
+#satellites-table td a, #customers-table td a{
+    text-decoration:none;
+}

@@ -1,15 +1,23 @@
-﻿@model Epicycl.Models.Customer;
+﻿@model Epicycl.ViewModels.CustomerDetailsViewModel;
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@Model.Name</h1>
+<h1>About @Model.Customer.Name</h1>
+
+
+
 <ul>
-    <li>Membership Type: @Model.MembershipType</li>
-    @if (@Model.Birthday != null)
+    <li>Membership Type: 
+        @{
+            var MemType = @Model.SubscribtionTypes.Select(x => x.Id == @Model.Customer.MembershipTypeId);
+            
+        }
+        @Model.Customer.MembershipType</li>
+    @if (@Model.Customer.Birthday != null)
     {
-        <li>Birthday: @Model.Birthday</li>
+        <li>Birthday: @Model.Customer.Birthday</li>
     }
     
 </ul>

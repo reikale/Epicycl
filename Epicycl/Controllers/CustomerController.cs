@@ -27,7 +27,7 @@ namespace Epicycl.Controllers
 
         public ActionResult New()
         {
-            var membershipTypes = _context.MembershipTypes.ToList();
+            var membershipTypes = _context.SubscribtionTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
                 Customer = new Customer(),
@@ -40,14 +40,13 @@ namespace Epicycl.Controllers
         /*[ValidateAntiForgeryToken]*/
         public ActionResult Save(Customer customer)
         {
-            
-            
+                        
             if (!ModelState.IsValid)
             {
                 var viewModel = new CustomerFormViewModel
                 {
                     Customer = customer,
-                    MembershipTypes = _context.MembershipTypes.ToList()
+                    MembershipTypes = _context.SubscribtionTypes.ToList()
                 };
                 return View("CustomerForm", viewModel);
             }
@@ -79,7 +78,7 @@ namespace Epicycl.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 Customer = customer,
-                MembershipTypes = _context.MembershipTypes.ToList()
+                MembershipTypes = _context.SubscribtionTypes.ToList()
             };
             return View("CustomerForm", viewModel); // sitas nukelia tiesiai i View.New kad butu sukurtas varototojas jei tokio nerado
             
@@ -104,11 +103,18 @@ namespace Epicycl.Controllers
         public ActionResult Details(int id)
         {
             var customer = _context.Customers.SingleOrDefault(x => x.Id == id);
+            var types = _context.SubscribtionTypes.ToList();
+            var viewModel = new CustomerDetailsViewModel
+            {
+                Customer = customer,
+                SubscribtionTypes = types
+            };
+            
 
             if (customer != null)
             {
 
-                return View(customer);
+                return View(viewModel);
             }
             else
             {

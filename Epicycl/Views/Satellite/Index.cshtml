@@ -10,11 +10,12 @@
 {
     <p>We don't have any satellites yet.</p>
 }else{
-    <table id="satellites-table" class="table table-hover">
+    <table id="satellites-table" class="table table-hover table-responsive">
   <thead>
     <tr>
       <th scope="col">Satellites</th>
       <th scope="col">Type</th>
+      <th scope="col">Edit / Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -30,7 +31,22 @@
                      @Html.ActionLink(satellite.Name, "Details", "Satellite", new{ id=satellite.Id}, null)
                      
                  </td>
+                 
                  <td>@satellite.Type</td>
+                 <td>
+                     @Html.ActionLink(
+                        "Edit", 
+                        "Edit", 
+                        "Satellite", 
+                        new { id = satellite.Id }, 
+                        new { @class="btn btn-warning" })
+                     @Html.ActionLink(
+                        "Delete", 
+                        "Delete", 
+                        "Satellite", 
+                        new { id = satellite.Id }, 
+                        new { onclick = "return confirm('Are you sure you want to delete this satellite?');", @class="btn btn-danger" }) 
+                 </td>
                  </tr>
             }
     
