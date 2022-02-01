@@ -10,7 +10,7 @@
 {
     <p>We don't have any satellites yet.</p>
 }else{
-    <table class="table table-hover">
+    <table id="satellites-table" class="table table-hover">
   <thead>
     <tr>
       <th scope="col">Satellites</th>
@@ -36,5 +36,13 @@
     
   </tbody>
 </table>
+}
+@section Scripts{
+   <script>  
+  
+    $('#satellites-table').dataTable({  
+    });  
+</script>  
+       
 }
 

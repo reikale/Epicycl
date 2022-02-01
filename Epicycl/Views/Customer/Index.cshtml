@@ -13,7 +13,7 @@
 {
     <p>We don't have any customers yet.</p>
 }else{
-    <table class="table table-hover">
+    <table id="customers-table" class="table table-hover">
   <thead>
     <tr>
       <th scope="col">Customer</th>
@@ -55,5 +55,12 @@
   </tbody>
 </table>
 }
-
+@section Scripts{
+   <script>  
+  
+    $('#customers-table').dataTable({  
+    });  
+</script>  
+       
+}
 
