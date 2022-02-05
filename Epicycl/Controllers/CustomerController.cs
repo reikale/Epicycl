@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Linq;
 using System.Web.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Epicycl.Controllers
 {
@@ -66,6 +67,8 @@ namespace Epicycl.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Customer");
         }
+
+        [Microsoft.AspNetCore.Authorization.Authorize(Policy = "AdminOnly")]
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(x => x.Id == id);

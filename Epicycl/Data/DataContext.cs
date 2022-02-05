@@ -16,5 +16,12 @@ namespace Epicycl.Data
         public DbSet<MembershipType> MembershipTypes { get; set; }
         public DbSet<SatelliteTypes> SatelliteTypes { get; set; }
         public DbSet<SubscribtionTypes> SubscribtionTypes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.ApplyConfiguration(new RoleConfiguration());
+        }
     }
 }
