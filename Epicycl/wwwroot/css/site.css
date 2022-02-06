@@ -1,5 +1,7 @@
+
 html {
-  font-size: 14px;
+    font-size: 14px;
+    
 }
 
 @media (min-width: 768px) {
@@ -14,7 +16,11 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    
+}
+#home {
+    background-image: url("~/img/home.jpg") !important
 }
 .field-validation-error{
     color: red;

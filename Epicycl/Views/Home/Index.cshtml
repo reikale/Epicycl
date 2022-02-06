@@ -2,7 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="home" class="text-center" style="display:flex;flex-direction:column;align-items:flex-start;position:absolute;bottom:130px;left:50px;">
+    <h1 class="display-4 text-info" >Your Satellite Services Host</h1>
+    <h3 class="text-info">Start exploring today</h3>
+    <div style="display:flex;padding-top:10px;">
+         <p>
+    @Html.ActionLink("Explore Services", "Index", "Customer", null, new {@class = "btn btn-outline-info", @style="font-size:20px;margin-right:10px;"})
+        </p>
+        <p>
+    @Html.ActionLink("Explore Satellites", "Index", "Satellite", null, new {@class = "btn btn-outline-info", @style="font-size:20px;"})
+        </p>
+       
+    </div>
+    
 </div>
+<img src="~/img/satelite-home.png" alt="satellite vector" style="height:200px;position:absolute;top:230px;transform:rotate(-115deg);">
+

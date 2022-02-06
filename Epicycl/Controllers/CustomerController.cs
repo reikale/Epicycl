@@ -16,6 +16,9 @@ namespace Epicycl.Controllers
         {
             _context = context;
         }
+
+
+        [Microsoft.AspNetCore.Authorization.Authorize]
         public ActionResult Index()
         {
 
@@ -26,6 +29,8 @@ namespace Epicycl.Controllers
 
         }
 
+        
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles= "ServiceProvider, AdminUser")]
         public ActionResult New()
         {
             var membershipTypes = _context.SubscribtionTypes.ToList();
@@ -68,7 +73,7 @@ namespace Epicycl.Controllers
             return RedirectToAction("Index", "Customer");
         }
 
-        [Microsoft.AspNetCore.Authorization.Authorize(Policy = "AdminOnly")]
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "AdminUser")]
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(x => x.Id == id);
@@ -87,7 +92,7 @@ namespace Epicycl.Controllers
             
             
         }
-
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "AdminUser")]
         public ActionResult DeleteCustomer(int id)
         {
             if (id != null)
@@ -103,14 +108,56 @@ namespace Epicycl.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Customer");
         }
+
+        [Microsoft.AspNetCore.Authorization.Authorize]
         public ActionResult Details(int id)
         {
             var customer = _context.Customers.SingleOrDefault(x => x.Id == id);
             var types = _context.SubscribtionTypes.ToList();
+            var serviceList = new List<string>();
+            if (customer != null && customer.MembershipTypeId == 1)
+            {
+                serviceList = new List<string>
+                {
+                    "Data Collection",
+                    "Radio services",
+                    "Television services",
+                    "Internet services",
+                    "Telephone services"
+                };
+            }
+            if (customer != null && customer.MembershipTypeId == 2)
+            {
+                serviceList = new List<string>
+                {
+                    "Star Maps",
+                    "Information about Black Holes",
+                    "Pictures of the Planets in the Solar System",
+                    "Maps of different planetary surfaces"
+                };
+            }
+            if (customer != null && customer.MembershipTypeId == 3)
+            {
+                serviceList = new List<string>
+                {
+                    "Satellite Images",
+                    "Data Acquisition",
+                    "Meteorology",
+                    "Earth Maps"
+                };
+            }
+            if (customer != null && customer.MembershipTypeId == 4)
+            {
+                serviceList = new List<string>
+                {
+                    "Renewable Energy"
+                };
+            }
             var viewModel = new CustomerDetailsViewModel
             {
                 Customer = customer,
-                SubscribtionTypes = types
+                SubscribtionTypes = types,
+                ServiceList = serviceList
             };
             
 

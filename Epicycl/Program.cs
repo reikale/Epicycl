@@ -17,14 +17,6 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 
 
-//Role-based authorization:
-/*builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<DataContext>()
-    .AddDefaultUI()
-    .AddDefaultTokenProviders();
-builder.Services.AddControllersWithViews();*/
-
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<DataContext>();
@@ -33,7 +25,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("RequireAdministratorRole",
-         policy => policy.RequireRole("Administrator"));
+         policy => policy.RequireRole("AdminUser"));
 });
 
 
@@ -69,12 +61,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 
-/*builder.Services.AddAuthorization(options =>
-{
-    options.FallbackPolicy = new AuthorizationPolicyBuilder()
-        .RequireAuthenticatedUser()
-        .Build();
-});*/
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

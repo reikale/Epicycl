@@ -20,13 +20,7 @@
     }
 
   </div>
-  @*@if (@Model.ImageLink !=null)
-  {
-      <svg xmlns="@Model.ImageLink" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-    <rect width="100%" height="100%" fill="#868e96"></rect>
-    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-  </svg>
-  }*@
+  
   
   <div class="card-body">
         @if(@Model.Terminated == null)
@@ -38,10 +32,7 @@
         <p class="card-text"> @Model.Description</p>
   </div>
   
- @* <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>*@
+
     @if(Model.Terminated == null)
     {
         <div class="card border-success mb-3" style="max-width: 20rem;">
@@ -58,12 +49,22 @@
           </div>
         </div>
         }
-<p>
+    @if (User.IsInRole("AdminUser"))
+    {
+        <p>
     @Html.ActionLink("Edit", "Edit", "Satellite", new{ id=Model.Id}, new { @class = "btn btn-primary"})
 </p>
+    }
+    
   
 </div>
-
+<div>
+     @if(@Model.Terminated == null)
+        {
+            <button type="button" class="btn btn-info">Rent this Satellite</button>
+        }
+        
+</div>
 
 
 

@@ -8,25 +8,90 @@
             
         }
 
-<h2>About</h2>
+<h2>About @Model.Customer.Name</h2>
 <hr />
-
-<div class="card border-dark mb-3" style="max-width: 20rem;">
-  @*<div class="card-header">@Model.Customer.Name</div>*@
+<div class="parent" style="display: flex; justify-content: space-evenly">
+    <div class="card border-dark mb-3" style="max-width: 20rem;">
   <div class="card-body">
-    <h4 class="card-title">@Model.Customer.Name</h4>
-    <h5>Birthday: @Model.Customer.Birthday.ToShortDateString()</h5>
+    <h3 class="card-title" style="text-transform: uppercase;>@Model.Customer.Name</h3>
+    <h5>Service Type: @MemType.Name</h5>
     <h5 class="text-info">About: </h5>
+    
     <p class="card-text">
-        Hi! My name is @Model.Customer.Name and I'm the CEO of VeryBigCompany. 
-        My team and I develope awesome solutions for communication and environment problems, but
-        we have a slight problem - there's not enough satellites in space to fill everyone's needs.
-        Can you rent me one? I promise I will offer you solutions you've been looking for!
+        Hi! My name is John Doe and I'm the CEO of @Model.Customer.Name.<p>
+            @if(@MemType.Id == 1)
+            {
+              <p class="card-text">
+                  My team and I develope awesome solutions for your communications needs. The services we 
+                  offer include telephony, television, radio broadcasting, amateur radio, internet access
+                  and so much more!
+              </p>  
+            }
+                @if(@MemType.Id == 2)
+                {
+                   <p class="card-text">
+                  My team and I are devoted to provide you with the most breathtaking visual information
+                  from space. We can offer you information for star maps creation or maybe a today's 
+                  picture of Venus? All services is provided in the table on the right.
+              </p>  
+                }
+                @if(@MemType.Id == 3)
+                {
+                    <p class="card-text">
+                  With the power of Earth Obervation (OB) satellites we are able to monitor and protect our 
+                  environment, manage our resources, respond to global humanitarian disasters and enable 
+                  sustainable development. That's why we can provide essential information on a vast number of areas, 
+                  including: ocean salinity, ice thickness, crop health, and air quality. 
+                  Check out the full list of our services.
+                    </p> 
+                }
+                @if(@MemType.Id == 4)
+                {
+                    <p class="card-text">
+                  Does cosmic-energy sound good to you? Because it does sound good to us! With the help of
+                  our satellites we are able to convert sunlight to other form of energy and efficiently 
+                  transmitt it to Earth. If you're looking for a source of epic energy - we are your company!
+
+                    </p> 
+                }
+
+        <p class="card-text">
+         
+
+        Found what you were looking for? Don't hesitate to contact us.
     </p>
     <h5 class="text-info">Contact information: </h5>
     <p><a href="mailto:someone@example.com">someone@example.com</a></p>
   </div>
 </div>
-s
+
+<div class="card border-dark mb-3" style="max-width: 20rem;">
+     <div class="card-body">
+         <h3 class="card-title">OUR SERVICES:</h3>
+         <div class="list-group list-group-flush">
+                @foreach(var item in @Model.ServiceList)
+                {
+                    <button type="button" class="btn btn-info" style="margin-top: 10px;">
+                        @item
+                        </button>
+                    
+    
+              
+                }
+
+          </div>
+     </div>
+</div>
+
+</div>
+<div style="display: flex; justify-content:center">
+    @if (User.IsInRole("AdminUser"))
+    {
+        <p>
+    @Html.ActionLink("Edit", "Edit", "Customer", new{ id=Model.Customer.Id}, new { @class = "btn btn-primary"})
+</p>
+    }
+</div>
+
 
 

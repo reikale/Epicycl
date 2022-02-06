@@ -1,5 +1,6 @@
 ﻿using Epicycl.Models;
 using Epicycl.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Epicycl.Controllers
@@ -12,6 +13,8 @@ namespace Epicycl.Controllers
             _context = context;
         }
         
+
+        [Authorize]
         public ActionResult Details(int id)
         {
             var satellite = _context.Satellites.SingleOrDefault(x => x.Id == id);
@@ -26,6 +29,9 @@ namespace Epicycl.Controllers
                 return NotFound();
             }
         }
+
+
+        [Authorize(Roles = "SatelliteOwner")]
         public ActionResult New(Satellite satellite)
         {
             var viewModel = new SatelliteFormViewModel
@@ -67,6 +73,9 @@ namespace Epicycl.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Satellite");
         }
+
+
+        [Authorize(Roles ="AdminUser")]
         public ActionResult Edit(int id)
         {
             var satellite = _context.Satellites.SingleOrDefault(x => x.Id == id);
@@ -86,6 +95,8 @@ namespace Epicycl.Controllers
             return View("New", viewModel); // sitas nukelia tiesiai i View.New kad butu sukurtas varototojas jei tokio nerado
 
         }
+
+        [Authorize(Roles = "AdminUser")]
         public ActionResult Delete(int id)
         {
             var satellite = _context.Satellites.SingleOrDefault(x => x.Id == id);
@@ -97,6 +108,9 @@ namespace Epicycl.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Satellite");
         }
+
+
+        [Authorize]
         public ActionResult Index()
         {
             
