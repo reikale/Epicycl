@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WzMYKPKuklgb7tuI44eF+rAKr1EeuoP9JbHWn57+UC8=",
+  "Hash": "66nugQwLMCB3PQgy4c898ky+O815HQ3FuVr8VL3MXh8=",
   "Source": "Epicycl",
   "BasePath": "_content/Epicycl",
   "Mode": "Default",
@@ -1428,6 +1428,23 @@
       "OriginalItemSpec": "wwwroot\\img\\home.jpg"
     },
     {
+      "Identity": "C:\\Users\\Inga\\Documents\\GitHub\\Tymespace\\Epicycl\\wwwroot\\img\\Satelite.svg",
+      "SourceId": "Epicycl",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Inga\\Documents\\GitHub\\Tymespace\\Epicycl\\wwwroot\\",
+      "BasePath": "_content/Epicycl",
+      "RelativePath": "img/Satelite.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Satelite.svg"
+    },
+    {
       "Identity": "C:\\Users\\Inga\\Documents\\GitHub\\Tymespace\\Epicycl\\wwwroot\\img\\satelite-home.png",
       "SourceId": "Epicycl",
       "SourceType": "Discovered",
@@ -1443,6 +1460,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\satelite-home.png"
+    },
+    {
+      "Identity": "C:\\Users\\Inga\\Documents\\GitHub\\Tymespace\\Epicycl\\wwwroot\\img\\Stars.svg",
+      "SourceId": "Epicycl",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Inga\\Documents\\GitHub\\Tymespace\\Epicycl\\wwwroot\\",
+      "BasePath": "_content/Epicycl",
+      "RelativePath": "img/Stars.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Stars.svg"
     },
     {
       "Identity": "C:\\Users\\Inga\\Documents\\GitHub\\Tymespace\\Epicycl\\wwwroot\\js\\site.js",

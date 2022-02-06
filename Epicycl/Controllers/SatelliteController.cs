@@ -31,7 +31,7 @@ namespace Epicycl.Controllers
         }
 
 
-        [Authorize(Roles = "SatelliteOwner")]
+        [Authorize(Roles = "SatelliteOwner, AdminUser")]
         public ActionResult New(Satellite satellite)
         {
             var viewModel = new SatelliteFormViewModel

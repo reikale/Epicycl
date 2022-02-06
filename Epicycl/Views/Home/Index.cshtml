@@ -16,5 +16,21 @@
     </div>
     
 </div>
-<img src="~/img/satelite-home.png" alt="satellite vector" style="height:200px;position:absolute;top:230px;transform:rotate(-115deg);">
+<div style="overflow:hidden;max-width:100vw;">
+    <img id="image-satellite" 
+    src="~/img/Satelite.svg" 
+    alt="satellite vector" 
+    style="right:712px;height:650px;position:absolute;top:-13px;z-index:-1;transform:rotate(20deg);">
+<img src="~/img/Stars.svg" style="position:absolute;z-index:-2;left:0;top:0;width:100vw"/>
+</div>
 
+@section Scripts{
+    <script>
+        $(function(){
+
+            $("#image-satellite").animate({
+                "right": "-500px"
+            }, 85000, 'linear');
+        });
+    </script>
+}
