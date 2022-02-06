@@ -11,10 +11,34 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+string connectionString;
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(connectionString));
+{
+    if (env == "Development")
+    {
+        connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    }
+    else
+    {
+        // Use connection string provided at runtime by Heroku.
+        var connUrl = Environment.GetEnvironmentVariable("CLEARDB_DATABASE_URL");
 
+        connUrl = connUrl.Replace("mysql://", string.Empty);
+        var userPassSide = connUrl.Split("@")[0];
+        var hostSide = connUrl.Split("@")[1];
+
+        var connUser = userPassSide.Split(":")[0];
+        var connPass = userPassSide.Split(":")[1];
+        var connHost = hostSide.Split("/")[0];
+        var connDb = hostSide.Split("/")[1].Split("?")[0];
+
+
+        connectionString = $"server={connHost};Uid={connUser};Pwd={connPass};Database={connDb}";
+
+    }
+    options.UseSqlServer(connectionString);
+});
 
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
