@@ -34,7 +34,8 @@ builder.Services.AddDbContext<DataContext>(options =>
         var connDb = hostSide.Split("/")[1].Split("?")[0];
 
 
-        connectionString = $"server={connHost};Uid={connUser};Pwd={connPass};Database={connDb}";
+        //connectionString = $"server={connHost};Uid={connUser};Pwd={connPass};Database={connDb}";
+        connectionString = $"Host=eu-cdbr-west-02.cleardb.net;Port=3306;Database=heroku_6b0c9b234708258;User Id=bf15a071b1fb71;Password=a5333c46;sslmode=Require;TrustServerCertificate=True; ";
 
     }
     options.UseSqlServer(connectionString);

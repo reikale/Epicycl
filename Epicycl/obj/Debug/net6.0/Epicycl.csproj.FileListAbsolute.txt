@@ -517,3 +517,12 @@ C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Microsoft.Owin
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Microsoft.Owin.Security.OAuth.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Owin.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Google.Protobuf.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\MySql.Data.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Ubiety.Dns.Core.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\ZstdNet.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\MySql.EntityFrameworkCore.dll
