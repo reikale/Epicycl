@@ -18,12 +18,12 @@ builder.Services.AddDbContext<DataContext>(options =>
     if (env == "Development")
     {
         connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-        options.UseSqlServer(connectionString);
+        
     }
     else
     {
         // Use connection string provided at runtime by Heroku.
-        var connUrl = Environment.GetEnvironmentVariable("CLEARDB_DATABASE_URL");
+        var connUrl = Environment.GetEnvironmentVariable("JAWSDB_URL");
 
         connUrl = connUrl.Replace("mysql://", string.Empty);
         var userPassSide = connUrl.Split("@")[0];
@@ -31,15 +31,16 @@ builder.Services.AddDbContext<DataContext>(options =>
 
         var connUser = userPassSide.Split(":")[0];
         var connPass = userPassSide.Split(":")[1];
+        var connPort = hostSide.Split(":")[1].Split("/")[0];
         var connHost = hostSide.Split("/")[0];
         var connDb = hostSide.Split("/")[1].Split("?")[0];
 
 
-        //connectionString = $"server={connHost};Uid={connUser};Pwd={connPass};Database={connDb}";
-        connectionString = builder.Configuration.GetConnectionString("HerokuConnection");
-        options.UseNpgsql(connectionString);
+        connectionString = $"server={connHost};Port={connPort};Uid={connUser};Pwd={connPass};Database={connDb}";
+        //connectionString = builder.Configuration.GetConnectionString("HerokuConnection");
+        //options.UseNpgsql(connectionString);
     }
-    
+    options.UseSqlServer(connectionString);
 });
 
 
