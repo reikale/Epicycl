@@ -526,3 +526,5 @@ C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\MySql.Data.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Ubiety.Dns.Core.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\ZstdNet.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\MySql.EntityFrameworkCore.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Npgsql.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

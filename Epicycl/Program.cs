@@ -18,6 +18,7 @@ builder.Services.AddDbContext<DataContext>(options =>
     if (env == "Development")
     {
         connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+        options.UseSqlServer(connectionString);
     }
     else
     {
@@ -35,10 +36,10 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 
         //connectionString = $"server={connHost};Uid={connUser};Pwd={connPass};Database={connDb}";
-        connectionString = $"Host=eu-cdbr-west-02.cleardb.net;Port=3306;Database=heroku_6b0c9b234708258;User Id=bf15a071b1fb71;Password=a5333c46;sslmode=Require;TrustServerCertificate=True; ";
-
+        connectionString = builder.Configuration.GetConnectionString("HerokuConnection");
+        options.UseNpgsql(connectionString);
     }
-    options.UseSqlServer(connectionString);
+    
 });
 
 
