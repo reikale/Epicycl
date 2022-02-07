@@ -31,12 +31,12 @@ builder.Services.AddDbContext<DataContext>(options =>
 
         var connUser = userPassSide.Split(":")[0];
         var connPass = userPassSide.Split(":")[1];
-        var connPort = hostSide.Split(":")[1].Split("/")[0];
+        
         var connHost = hostSide.Split("/")[0];
         var connDb = hostSide.Split("/")[1].Split("?")[0];
 
 
-        connectionString = $"server={connHost};Port={connPort};Uid={connUser};Pwd={connPass};Database={connDb}";
+        connectionString = $"server={connHost};Uid={connUser};Pwd={connPass};Database={connDb}";
         //connectionString = builder.Configuration.GetConnectionString("HerokuConnection");
         //options.UseNpgsql(connectionString);
     }
