@@ -23,6 +23,7 @@ namespace Epicycl.Controllers
         {
 
             var customers = _context.Customers.Include(c => c.MembershipType);
+            
 
 
             return View(customers);

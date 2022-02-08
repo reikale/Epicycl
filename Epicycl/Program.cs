@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using MySql.Data.MySqlClient;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,41 +13,33 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+var serverVersion = new MySqlServerVersion(new Version(8, 0, 28));
 string connectionString;
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    if (env == "Development")
+    if (env != "Development")
     {
         connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-        
+        options.UseSqlServer(connectionString);
     }
     else
     {
-        // Use connection string provided at runtime by Heroku.
-        var connUrl = Environment.GetEnvironmentVariable("JAWSDB_URL");
-
-        connUrl = connUrl.Replace("mysql://", string.Empty);
-        var userPassSide = connUrl.Split("@")[0];
-        var hostSide = connUrl.Split("@")[1];
-
-        var connUser = userPassSide.Split(":")[0];
-        var connPass = userPassSide.Split(":")[1];
+        connectionString = builder.Configuration.GetConnectionString("MySqlConnection");
         
-        var connHost = hostSide.Split("/")[0];
-        var connDb = hostSide.Split("/")[1].Split("?")[0];
-
-
-        connectionString = $"server={connHost};Uid={connUser};Pwd={connPass};Database={connDb}";
-        //connectionString = builder.Configuration.GetConnectionString("HerokuConnection");
-        //options.UseNpgsql(connectionString);
+        options.UseMySql(connectionString, serverVersion);
+        
     }
-    options.UseSqlServer(connectionString);
+   
 });
 
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<DataContext>();
+    .AddEntityFrameworkStores<DataContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddMvc();
+
 builder.Services.AddRazorPages();
 
 builder.Services.AddAuthorization(options =>
@@ -90,7 +83,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 
 
@@ -118,6 +111,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseCookiePolicy();
 
 app.UseRouting();
 

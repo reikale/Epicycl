@@ -7,10 +7,12 @@ namespace Epicycl.Data
 {
     public class DataContext : IdentityDbContext<IdentityUser, IdentityRole, string>
     {
+        public string ConnectionString { get; set; }
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-
+            this.Database.EnsureCreated();
         }
+
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Satellite> Satellites { get; set; }
         public DbSet<MembershipType> MembershipTypes { get; set; }

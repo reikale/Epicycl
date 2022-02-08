@@ -232,7 +232,6 @@ C:\Users\Inga\Documents\GitHub\Epicycl\Epicycl\obj\Debug\net6.0\Epicycl.pdb
 C:\Users\Inga\Documents\GitHub\Epicycl\Epicycl\obj\Debug\net6.0\Epicycl.genruntimeconfig.cache
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\appsettings.json
-C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Epicycl.staticwebassets.runtime.json
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Epicycl.exe
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Epicycl.deps.json
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Epicycl.runtimeconfig.json
@@ -450,13 +449,6 @@ C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\Epicycl.Assemb
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\Epicycl.AssemblyInfo.cs
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\Epicycl.csproj.CoreCompileInputs.cache
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\Epicycl.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\Epicycl.RazorAssemblyInfo.cache
-C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\Epicycl.RazorAssemblyInfo.cs
-C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\scopedcss\bundle\Epicycl.styles.css
-C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\scopedcss\projectbundle\Epicycl.bundle.scp.css
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\Epicycl.csproj.CopyComplete
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\Epicycl.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\ref\Epicycl.dll
@@ -528,3 +520,13 @@ C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\ZstdNet.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\MySql.EntityFrameworkCore.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Npgsql.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Epicycl.staticwebassets.runtime.json
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\Epicycl.RazorAssemblyInfo.cache
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\Epicycl.RazorAssemblyInfo.cs
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\scopedcss\bundle\Epicycl.styles.css
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\scopedcss\projectbundle\Epicycl.bundle.scp.css
