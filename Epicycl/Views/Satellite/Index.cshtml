@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Epicycl.Models.Satellite>;
+﻿@model Epicycl.ViewModels.SatellitesSatellitesViewModel;
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,7 +7,7 @@
 
 <h1>Satellites</h1>
 <br />
-@if(!Model.Any())
+@if(!Model.Satellites.Any())
 {
     <p>We don't have any satellites yet.</p>
 }else{
@@ -32,7 +33,7 @@
             
       
     
-            @foreach(var satellite in Model)
+            @foreach(var satellite in Model.Satellites)
             {
                 <tr class="table-dark">
                  <td scope="row">
@@ -40,7 +41,12 @@
                      
                  </td>
                  
-                 <td>@satellite.Type</td>
+                        <td>
+                          
+                           @Model.SatelliteTypes.SingleOrDefault(x => x.Id == satellite.Type).Name
+                        </td>
+                    
+                    @*<td>@satellite.Type</td>*@
                     @if (User.IsInRole("AdminUser"))
                     {
                         <td>

@@ -2,9 +2,9 @@
 
 namespace Epicycl.ViewModels
 {
-    public class SatellitesSatellitesViewModel
+    public class SatelliteDetailViewModel
     {
         public IEnumerable<SatelliteTypes> SatelliteTypes { get; set; }
-        public IEnumerable<Satellite> Satellites { get; set; }
+        public Satellite Satellite { get; set; }
     }
 }

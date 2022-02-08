@@ -10,7 +10,7 @@ namespace Epicycl.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public string Type { get; set; }
+        public int Type { get; set; }
 
         [DataType(DataType.Date)]
         [BindProperty, DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

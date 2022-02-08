@@ -18,11 +18,17 @@ namespace Epicycl.Controllers
         public ActionResult Details(int id)
         {
             var satellite = _context.Satellites.SingleOrDefault(x => x.Id == id);
+            var types = _context.SatelliteTypes.ToList();
+            var viewModel = new SatelliteDetailViewModel
+            {
+                Satellite = satellite,
+                SatelliteTypes = types
+            };
 
             if (satellite != null)
             {
 
-                return View(satellite);
+                return View(viewModel);
             }
             else
             {
@@ -114,12 +120,17 @@ namespace Epicycl.Controllers
         public ActionResult Index()
         {
             
-            var satellites = _context.Satellites;
-
+            var satellites = _context.Satellites.ToList();
+            var types = _context.SatelliteTypes.ToList();
+            var viewModel = new SatellitesSatellitesViewModel
+            {
+                SatelliteTypes = types,
+                Satellites = satellites
+            };
             if(satellites != null)
             {
                 
-                return View(satellites);
+                return View(viewModel);
             }
             else
             {

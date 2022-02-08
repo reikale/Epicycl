@@ -1,4 +1,4 @@
-﻿@model Epicycl.Models.Satellite;
+﻿@model Epicycl.ViewModels.SatelliteDetailViewModel;
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,60 +6,61 @@
 
 
 <div class="card mb-3">
-  <h3 class="card-header">@Model.Name</h3>
+  <h3 class="card-header">@Model.Satellite.Name</h3>
   <div class="card-body">
-    <h5 class="card-title">Space Agency: @Model.Operator</h5>
+    <h5 class="card-title">Space Agency: @Model.Satellite.Operator</h5>
     
-    @if(@Model.Type == "Earth observation satellites")
+    @if(@Model.Satellite.Type == 2)
     {
-        <h6 class="card-subtitle text-muted">@Model.Type</h6>
+        <h6 class="card-subtitle text-muted">
+            @Model.SatelliteTypes.SingleOrDefault(x=> x.Id == @Model.Satellite.Type).Name</h6>
     }
-    @if(@Model.Type == "Astronomical satellites")
+    @if(@Model.Satellite.Type == 1)
     {
-        <h6 class="card-subtitle text-muted">@Model.Type</h6>
+        <h6 class="card-subtitle text-muted">@Model.Satellite.Type</h6>
     }
 
   </div>
   
   
   <div class="card-body">
-        @if(@Model.Terminated == null)
+        @if(@Model.Satellite.Terminated == null)
         {
             <p class="card-text text-success">This satellite is active</p>
         }else{
              <p class="card-text text-danger">This satellite was terminated</p>
         }
-        <p class="card-text"> @Model.Description</p>
+        <p class="card-text"> @Model.Satellite.Description</p>
   </div>
   
 
-    @if(Model.Terminated == null)
+    @if(Model.Satellite.Terminated == null)
     {
         <div class="card border-success mb-3" style="max-width: 20rem;">
           <div class="card-body">
-            <h4 class="card-title">Satellite was launched @Model.LaunchDate.ToShortDateString()</h4>
+            <h4 class="card-title">Satellite was launched @Model.Satellite.LaunchDate.ToShortDateString()</h4>
           </div>
         </div>
     }else
         {
             <div class="card border-warning mb-3" style="max-width: 20rem;">
           <div class="card-body">
-            <h4 class="card-title">Satellite was launched @Model.LaunchDate.ToShortDateString()</h4>
-            <h4 class="card-title">Terminated @Model.Terminated.Value.Date.ToShortDateString()</h4>
+            <h4 class="card-title">Satellite was launched @Model.Satellite.LaunchDate.ToShortDateString()</h4>
+            <h4 class="card-title">Terminated @Model.Satellite.Terminated.Value.Date.ToShortDateString()</h4>
           </div>
         </div>
         }
     @if (User.IsInRole("AdminUser"))
     {
         <p>
-    @Html.ActionLink("Edit", "Edit", "Satellite", new{ id=Model.Id}, new { @class = "btn btn-primary"})
+    @Html.ActionLink("Edit", "Edit", "Satellite", new{ id=Model.Satellite.Id}, new { @class = "btn btn-primary"})
 </p>
     }
     
   
 </div>
 <div>
-     @if(@Model.Terminated == null)
+     @if(@Model.Satellite.Terminated == null)
         {
             <button type="button" class="btn btn-info">Rent this Satellite</button>
         }
