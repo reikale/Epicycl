@@ -17,7 +17,7 @@ var serverVersion = new MySqlServerVersion(new Version(8, 0, 28));
 string connectionString;
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    if (env == "Development")
+    if (env != "Development")
     {
         connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
         options.UseSqlServer(connectionString);

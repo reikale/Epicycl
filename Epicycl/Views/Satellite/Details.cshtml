@@ -17,7 +17,8 @@
     }
     @if(@Model.Satellite.Type == 1)
     {
-        <h6 class="card-subtitle text-muted">@Model.Satellite.Type</h6>
+        <h6 class="card-subtitle text-muted">
+            @Model.SatelliteTypes.SingleOrDefault(x=> x.Id == @Model.Satellite.Type).Name</h6>
     }
 
   </div>
