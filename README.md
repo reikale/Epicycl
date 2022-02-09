@@ -39,10 +39,10 @@
 ## Features
 - Authentication -- website is protected from unauthenticated users' unwanted actions with AntiForgery Cookie.
 - Authorization --  this app provides 4 different user roles: Administrator, Satellite Owner, Service Provider, and Customer. Each of them has a different accessibility level. 
-    -- Customer Role enables a user to view both lists of Service Providers and Satellites. Also, they have access to book a service or rent a Satellite.
-    -- Service Provider role gives the user the same accessibility as Customer Role with the addition of new service creation. New Service is immediately added to the service list and is visible to Customers.
-    -- Satellite Owner role gives the user the same accessibility as Customer Role with the addition of new Satellite creation. New Satellite is immediately added to Satellites list and is visible to Customers for booking.
-    -- Administrator role gives full access to the user. The administrator can create, edit and delete both Services and Satellites. 
+  - *Customer* Role enables a user to view both lists of Service Providers and Satellites. Also, they have access to book a service or rent a Satellite.
+  - *Service Provider* role gives the user the same accessibility as Customer Role with the addition of new service creation. New Service is immediately added to the service list and is visible to Customers.
+  - *Satellite Owner* role gives the user the same accessibility as Customer Role with the addition of new Satellite creation. New Satellite is immediately added to Satellites list and is visible to Customers for booking.
+  - *Administrator* role gives full access to the user. The administrator can create, edit and delete both Services and Satellites. 
 - WEB API -- provided API gives access to users to GET, POST, EDIT and DELETE both Services and Satellites. At this stage Data Transfer Objects (DTOs) were used to ensure that only specific data would be available for users to get.
 - Database -- with integrated external database all new users are registered and saved externally. That gives the application ability to remember and authenticate registered users.
 
