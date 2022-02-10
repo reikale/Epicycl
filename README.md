@@ -1,6 +1,7 @@
 # Tymespace 
 > ASP.NET Core MVC web application.
 > Live demo [_here_](https://tymespace.herokuapp.com/). 
+> It may take up to 2 minutes to load.
 
 ## Table of Contents
 * [General Info](#general-information)
