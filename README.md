@@ -66,15 +66,15 @@ _in progress_
 
 
 ## Room for Improvement
-While this is a working project there are a lot of things that need to be improved and created. Here are a couple of things:
+While this is a working project there are a lot of things that need to be created or improved. 
 
 Room for improvement:
 - Home page responsiveness on smaller screens.
 - User experience bugs.
 
 To do:
-- Create a service booking form, make that work.
-- Create a satellite count, so when the user rents one other user on-site can see the change.
-- Make an automatic satellite reservation button with a time to rent one. When a certain time ends the count should return to the previous stage.
+- Create a service bookingform, add functionality to it.
+- Create a satellite count, so when the satellite is rented users on-site can see the count change.
+- Make an automatic satellite reservation button with a limited time to rent one. When time ends the count should go up by 1.
 
 
