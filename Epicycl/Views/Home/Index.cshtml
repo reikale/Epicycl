@@ -1,27 +1,29 @@
-﻿@{
+﻿@section Styles{
+    <link rel="Stylesheet" href="@Href("~/css/home.css")" />
+}
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div id="home" class="text-center" style="display:flex;flex-direction:column;align-items:flex-start;position:absolute;bottom:130px;left:50px;">
+<div id="home" class="text-center">
     <h1 class="display-4 text-info" >Your Satellite Services Host</h1>
     <h3 class="text-info">Start exploring today</h3>
-    <div style="display:flex;padding-top:10px;">
+    <div class="bottom-buttons">
          <p>
-    @Html.ActionLink("Explore Services", "Index", "Customer", null, new {@class = "btn btn-outline-info", @style="font-size:20px;margin-right:10px;"})
+    @Html.ActionLink("Explore Services", "Index", "Customer", null, new {@class = "btn btn-outline-info button-customer"})
         </p>
         <p>
-    @Html.ActionLink("Explore Satellites", "Index", "Satellite", null, new {@class = "btn btn-outline-info", @style="font-size:20px;"})
+    @Html.ActionLink("Explore Satellites", "Index", "Satellite", null, new {@class = "btn btn-outline-info button-satellite"})
         </p>
        
     </div>
     
 </div>
-<div style="overflow:hidden;max-width:100vw;">
+<div class="home-background">
     <img id="image-satellite" 
     src="~/img/Satelite.svg" 
-    alt="satellite vector" 
-    style="right:712px;height:650px;position:absolute;top:-13px;z-index:-1;transform:rotate(20deg);">
-<img src="~/img/Stars.svg" style="position:absolute;z-index:-2;left:0;top:0;width:100vw"/>
+    alt="satellite vector" >
+<img id="image-stars" src="~/img/Stars.svg"/>
 </div>
 
 @section Scripts{

@@ -236,7 +236,6 @@ C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Epicycl.exe
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Epicycl.deps.json
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Epicycl.runtimeconfig.json
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Epicycl.dll
-C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\ref\Epicycl.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Epicycl.pdb
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\bin\Debug\net6.0\MessagePack.dll
@@ -530,3 +529,4 @@ C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\staticwebasset
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\scopedcss\bundle\Epicycl.styles.css
 C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\scopedcss\projectbundle\Epicycl.bundle.scp.css
+C:\Users\Inga\Documents\GitHub\Tymespace\Epicycl\obj\Debug\net6.0\refint\Epicycl.dll
